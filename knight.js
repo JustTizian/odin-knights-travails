@@ -48,7 +48,7 @@ function knightMoves(startPos, endPos) {
       tile.coordinates[0] === endPos[0] &&
       tile.coordinates[1] === endPos[1]
     ) {
-      return formatOutput(history);
+      return history;
     }
 
     tile.reachableCoordinates.forEach((coordinates) => {
@@ -66,7 +66,6 @@ function knightMoves(startPos, endPos) {
 function formatOutput(history) {
   let path = "";
   history.forEach((coordinate) => {
-    console.log(coordinate);
     path += "[" + coordinate + "]" + "\n";
   });
   return `You made it in ${history.length - 1} moves! Here's your path: \n${path}`;
@@ -74,68 +73,7 @@ function formatOutput(history) {
 
 console.log(knightMoves([3, 3], [4, 3]));
 
-/* const chessboardContainer = document.querySelector(".chessboard-container");
-const chessboardArray = [];
-
-function createSquare() {
-  const square = document.createElement("div");
-  square.classList.add("square");
-  return square;
+export default{
+  validMoves,
+  knightMoves
 }
-
-function createRow() {
-  const row = document.createElement("div");
-  row.classList.add("row");
-
-  const rowArray = [];
-
-  for (let i = 0; i < 8; i++) {
-    const square = createSquare();
-    row.appendChild(square);
-    rowArray.push(square);
-  }
-
-  chessboardArray.unshift(rowArray);
-  return row;
-}
-
-function createChessboard() {
-  for (let i = 0; i < 8; i++) {
-    chessboardContainer.appendChild(createRow());
-  }
-}
-
-createChessboard();
-
-for (let i = 0; i < chessboardArray.length; i++) {
-  for (let j = 0; j < 8; j++) {
-    const square = chessboardArray[i][j];
-    square.textContent = `${i},${j}`;
-    square.dataset.x = i;
-    square.dataset.y = j;
-  }
-}
-
-function markMultipleAsVisited(coordinatesArray, color) {
-  coordinatesArray.forEach((coordinates) => {
-    markAsVisited(coordinates[0], coordinates[1], color);
-  });
-}
-
-function markAsVisited(x, y, color) {
-  chessboardArray[x][y].style = `background-color: ${color}`;
-}
-
-chessboardContainer.addEventListener("click", (e) => {
-  const x = parseInt(e.target.dataset.x);
-  const y = parseInt(e.target.dataset.y);
-  
-  console.log(x, y);
-  chooseSquare(x, y);
-});
-
-function chooseSquare(x, y) {
-  chessboardArray[x][y].style = "color: red";
-  console.log(validMoves(x,y))
-  markMultipleAsVisited(validMoves(x, y), "lime");
-}  */
