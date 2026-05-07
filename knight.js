@@ -26,7 +26,6 @@ function validMoves(coordinate) {
       validMoves.push([newX, newY]);
     }
   }
-
   return validMoves;
 }
 
@@ -64,15 +63,13 @@ function knightMoves(startPos, endPos) {
   }
 }
 
-function formatOutput(history){
-  let path = ""
-  history.forEach(coordinate => {
-    console.log(coordinate)
-    path += ("[" + coordinate + "]" + "\n")
-  })
-  
-  
-  return `You made it in ${history.length-1} moves! Here's your path: \n${path}`
+function formatOutput(history) {
+  let path = "";
+  history.forEach((coordinate) => {
+    console.log(coordinate);
+    path += "[" + coordinate + "]" + "\n";
+  });
+  return `You made it in ${history.length - 1} moves! Here's your path: \n${path}`;
 }
 
 console.log(knightMoves([3, 3], [4, 3]));
