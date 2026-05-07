@@ -12,32 +12,43 @@ body {
   height: 100vh;
 }
 
-.chessboard-container{
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: row-reverse;
+.chessboard-container {
+  display: grid;
+  grid-template-columns: repeat(8, 80px);
+  grid-template-rows: repeat(8, 80px);
 }
 
-.chessboard-container > * > *{
+.tile {
+  width: 80px;
+  height: 80px;
+
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.chessboard-container > :nth-child(even) > :nth-child(even),
-.chessboard-container > :nth-child(odd) > :nth-child(odd)
-{
+.tile.white {
   background-color: gainsboro;
-  color:black;
+  color: black;
 }
 
-.row {
-  display: flex;
-  flex-direction: column-reverse;
+.tile.black {
+  background-color: black;
+  color: gainsboro;
 }
 
-.square {
-  width: 80px;
-  height: 80px;
+.tile.reachable {
+  background-color: rgba(0, 255, 0, 0.25);
+}
+
+.tile.way {
+  background-color: rgba(255, 255, 0, 0.25);
+}
+
+.tile.choosen {
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+.tile.goal {
+  background-color: rgba(0, 0, 255, 0.25);
 }
