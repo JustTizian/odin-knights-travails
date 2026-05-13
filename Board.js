@@ -42,8 +42,8 @@ function createChessboard() {
         ].classList.add("way");
       });
 
-      firstCoords = "";
-      secondCoords = "";
+      firstCoords = null;
+      secondCoords = null;
     }
   });
 
