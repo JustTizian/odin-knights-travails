@@ -71,8 +71,6 @@ function formatOutput(history) {
   return `You made it in ${history.length - 1} moves! Here's your path: \n${path}`;
 }
 
-console.log(knightMoves([3, 3], [4, 3]));
-
 export default{
   validMoves,
   knightMoves

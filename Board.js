@@ -66,22 +66,6 @@ function convertCoordsToFlatIndex(x, y) {
   return (7 - y) * 8 + x;
 }
 
-function chooseTile(x, y) {
-  resetBoard();
-  chessboardArray[convertCoordsToFlatIndex(x, y)].classList.add("choosen");
-  markMultipleAsVisited(knight.validMoves([x, y]), "green");
-}
-
-function markAsVisited(x, y) {
-  chessboardArray[convertCoordsToFlatIndex(x, y)].classList.add("reachable");
-}
-
-function markMultipleAsVisited(coordinatesArray) {
-  coordinatesArray.forEach((coordinates) => {
-    markAsVisited(coordinates[0], coordinates[1]);
-  });
-}
-
 function resetBoard() {
   chessboardArray.forEach((tile) => {
     tile.classList.remove("choosen", "reachable", "goal", "way");
